@@ -1,6 +1,7 @@
 const express = require('express');
 const dbConnection = require('./config/db');
 const categoryRouter = require('./routes/categoryRoute');
+const subCatRouter = require('./routes/subCategoryRoute');
 const app = express()
 
 // port
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 
 // Routes
 app.use('/category', categoryRouter)
+app.use('/subcategory', subCatRouter)
 
 app.listen(PORT, (err) => {
     if (err) {
