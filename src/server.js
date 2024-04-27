@@ -8,10 +8,14 @@ const app = express()
 // port
 const PORT = 8090;
 
-// dbConnection
+// Connect to the database
 dbConnection()
 
-// body-Parser
+// Set up view engine and views directory
+app.set('view engine', 'ejs')
+app.set('views', 'src/views')
+
+// Middleware
 app.use(express.urlencoded({ extended: false }))
 
 // Routes
@@ -19,6 +23,7 @@ app.use('/category', categoryRouter)
 app.use('/subcategory', subCatRouter)
 app.use('/product', productRouter)
 
+// Start the server
 app.listen(PORT, (err) => {
     if (err) {
         console.log('server Not Start')
