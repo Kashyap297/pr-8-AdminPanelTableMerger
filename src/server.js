@@ -27,7 +27,7 @@ app.use('/subcategory', subCatRouter)
 app.use('/product', productRouter)
 
 app.get('/', (req, res) => {
-    res.render('Pages/dashboard')
+    res.render('Pages/index')
 })
 
 // Start the server
