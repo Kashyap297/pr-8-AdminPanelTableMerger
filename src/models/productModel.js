@@ -5,6 +5,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    subCategoryID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'subcategories'
     }
 
 }, { timestamps: true })

@@ -11,7 +11,12 @@ const productController = {
     },
     get: async (req, res) => {
         try {
-            const product = await productModel.find({})
+            const product = await productModel.find({}).populate({
+                path : 'subCategoryID',
+                populate : {
+                    path : 'categoryID'
+                }
+            })
             res.send(product)
         } catch (error) {
             console.log(error)
