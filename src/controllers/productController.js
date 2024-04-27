@@ -17,7 +17,7 @@ const productController = {
                     path : 'categoryID'
                 }
             })
-            res.send(product)
+            res.render('Pages/products')
         } catch (error) {
             console.log(error)
         }

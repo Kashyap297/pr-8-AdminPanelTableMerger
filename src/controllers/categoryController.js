@@ -12,7 +12,7 @@ const categoryController = {
     get: async (req, res) => {
         try {
             const category = await categoryModel.find({})
-            res.send(category)
+            res.render('Pages/category')
         } catch (error) {
             console.log(error)
         }

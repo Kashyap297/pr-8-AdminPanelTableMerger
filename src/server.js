@@ -15,6 +15,10 @@ dbConnection()
 app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
+// Set up the public folder to serve static files
+// app.use(express.static('public'));
+app.use(express.static('src/public'));
+
 // Middleware
 app.use(express.urlencoded({ extended: false }))
 
@@ -22,6 +26,10 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/category', categoryRouter)
 app.use('/subcategory', subCatRouter)
 app.use('/product', productRouter)
+
+app.get('/', (req, res) => {
+    res.render('Pages/dashboard')
+})
 
 // Start the server
 app.listen(PORT, (err) => {
