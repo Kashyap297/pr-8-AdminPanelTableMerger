@@ -4,7 +4,6 @@ const categoryRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
 const categoryModel = require('./models/categoryModel');
-// const expressEjsLayouts = require('express-ejs-layouts');
 const app = express()
 
 // port
