@@ -32,6 +32,25 @@ const categoryController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    edit: async (req, res) => {
+        const { id } = req.params
+        try {
+            const category = await categoryModel.findById(id)
+            res.render('Pages/editcategory', { category: category })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    update: async (req, res) => {
+        const { id } = req.params
+        const { name } = req.body
+        try {
+            const category = await categoryModel.findByIdAndUpdate(id, { name: name }, { new: true })
+            res.redirect('/category')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
