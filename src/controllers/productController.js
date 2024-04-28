@@ -31,6 +31,15 @@ const productController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        try {
+            const product = await productModel.findByIdAndDelete(id)
+            res.redirect('/product')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
