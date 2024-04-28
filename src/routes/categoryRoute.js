@@ -3,7 +3,7 @@ const categoryController = require('../controllers/categoryController')
 
 const categoryRouter = Router()
 
-categoryRouter.post('/', categoryController.create)
+categoryRouter.post('/create', categoryController.create)
 categoryRouter.get('/', categoryController.get)
 categoryRouter.get('/create', categoryController.form)
 

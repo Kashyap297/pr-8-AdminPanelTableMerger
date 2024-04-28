@@ -4,8 +4,8 @@ const categoryController = {
     create: async (req, res) => {
         try {
             const category = await categoryModel.create(req.body)
-            res.send(category)
-        } catch (error) {
+            res.redirect('back')
+        } catch (error) {   
             console.log(error)
         }
     },
@@ -19,7 +19,7 @@ const categoryController = {
     },
     form: (req, res) => {
         try {
-            res.render('Pages/addform')
+            res.render('Pages/addcategory')
         } catch (error) {
             console.log(error)
         }
