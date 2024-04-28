@@ -40,6 +40,26 @@ const productController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    edit: async (req, res) => {
+        const { id } = req.params
+        try {
+            const product = await productModel.findById(id)
+            const subCategoryData = await subCategoryModel.find({})
+            res.render('Pages/editproduct', { product: product, subcategories: subCategoryData })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    update: async (req, res) => {
+        const { id } = req.params
+        const { name, subCategoryID } = req.body
+        try {
+            const product = await productModel.findByIdAndUpdate(id, { name: name, subCategoryID: subCategoryID }, { new: true })
+            res.redirect('/product')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
