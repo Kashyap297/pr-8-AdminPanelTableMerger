@@ -5,7 +5,7 @@ const categoryController = {
         try {
             const category = await categoryModel.create(req.body)
             res.redirect('back')
-        } catch (error) {   
+        } catch (error) {
             console.log(error)
         }
     },
@@ -20,6 +20,15 @@ const categoryController = {
     form: (req, res) => {
         try {
             res.render('Pages/addcategory')
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        try {
+            const category = await categoryModel.findByIdAndDelete(id)
+            res.redirect('/category')
         } catch (error) {
             console.log(error)
         }
