@@ -7,7 +7,7 @@ const categoryModel = require('./models/categoryModel');
 const app = express()
 
 // port
-const PORT = 8090;
+const PORT = 8000;
 
 // Connect to the database
 dbConnection()

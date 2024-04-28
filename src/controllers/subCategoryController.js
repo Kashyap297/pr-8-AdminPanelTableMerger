@@ -25,6 +25,15 @@ const subCatController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    delete: async (req, res) => {
+        const { id } = req.params
+        try {
+            const categoryData = await subCategoryModel.findByIdAndDelete(id)
+            res.redirect('/subcategory')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
