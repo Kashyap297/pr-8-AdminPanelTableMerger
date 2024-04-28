@@ -3,7 +3,8 @@ const productController = require('../controllers/productController')
 
 const productRouter = Router()
 
-productRouter.post('/', productController.create)
+productRouter.post('/create', productController.create)
 productRouter.get('/', productController.get)
+productRouter.get('/create', productController.form)
 
 module.exports = productRouter

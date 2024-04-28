@@ -1,10 +1,11 @@
 const productModel = require("../models/productModel")
+const subCategoryModel = require("../models/subCategoryModel")
 
 const productController = {
     create: async (req, res) => {
         try {
             const product = await productModel.create(req.body)
-            res.send(product)
+            res.redirect('back')
         } catch (error) {
             console.log(error)
         }
@@ -18,6 +19,15 @@ const productController = {
                 }
             })
             res.render('Pages/products', { products: product })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    form: async (req, res) => {
+        try {
+            const subCategoryData = await subCategoryModel.find({})
+            console.log(subCategoryData)
+            res.render('Pages/addproduct', { subcategories: subCategoryData })
         } catch (error) {
             console.log(error)
         }
