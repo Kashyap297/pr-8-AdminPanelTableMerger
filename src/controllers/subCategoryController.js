@@ -12,7 +12,8 @@ const subCatController = {
     get: async (req, res) => {
         try {
             const subcategory = await subCategoryModel.find({}).populate('categoryID')
-            res.render('Pages/subcategory')
+            console.log(subcategory);
+            res.render('Pages/subcategory', { subcategories: subcategory })
         } catch (error) {
             console.log(error)
         }

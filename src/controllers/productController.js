@@ -12,12 +12,12 @@ const productController = {
     get: async (req, res) => {
         try {
             const product = await productModel.find({}).populate({
-                path : 'subCategoryID',
-                populate : {
-                    path : 'categoryID'
+                path: 'subCategoryID',
+                populate: {
+                    path: 'categoryID'
                 }
             })
-            res.render('Pages/products')
+            res.render('Pages/products', { products: product })
         } catch (error) {
             console.log(error)
         }
