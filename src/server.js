@@ -3,6 +3,8 @@ const dbConnection = require('./config/db');
 const categoryRouter = require('./routes/categoryRoute');
 const subCatRouter = require('./routes/subCategoryRoute');
 const productRouter = require('./routes/productRoute');
+const categoryModel = require('./models/categoryModel');
+// const expressEjsLayouts = require('express-ejs-layouts');
 const app = express()
 
 // port
@@ -16,7 +18,7 @@ app.set('view engine', 'ejs')
 app.set('views', 'src/views')
 
 // Set up the public folder to serve static files
-app.use(express.static('src/public'));
+app.use(express.static('public'));
 
 // Middleware
 app.use(express.urlencoded({ extended: false }))

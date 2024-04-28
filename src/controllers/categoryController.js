@@ -16,6 +16,13 @@ const categoryController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    form: (req, res) => {
+        try {
+            res.render('Pages/addform')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
