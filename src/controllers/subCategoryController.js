@@ -34,6 +34,26 @@ const subCatController = {
         } catch (error) {
             console.log(error)
         }
+    },
+    edit: async (req, res) => {
+        const { id } = req.params
+        try {
+            const subcategory = await subCategoryModel.findById(id)
+            const categoryData = await categoryModel.find({})
+            res.render('Pages/editsubcategory', { subcategory: subcategory, categories: categoryData })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+    update: async (req, res) => {
+        const { id } = req.params
+        const { name, categoryID } = req.body
+        try {
+            const category = await subCategoryModel.findByIdAndUpdate(id, { name: name, categoryID: categoryID }, { new: true })
+            res.redirect('/subcategory')
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
